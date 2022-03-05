@@ -1,11 +1,11 @@
 module Main
   where
 
-import Data.Char
-  
+import Coordinate hiding (loc_to_str)
+-- import Data.Char
+
 size = 5 :: Int
--- location is a triple of x y and a char repr facing direction.
-location = (0,0,'f')
+coord = Coordinate (Location (0, 0), "F")
 moves = []
 blocker = ()
 
