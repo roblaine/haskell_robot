@@ -1,6 +1,8 @@
+# Toy Robot Simulator
+
+[Jon Eaves' Blog Post](https://joneaves.wordpress.com/2014/07/21/toy-robot-coding-test/)
+
 # Requirements
-(Jon Eaves' Blog Post)[https://joneaves.wordpress.com/2014/07/21/toy-robot-coding-test/]
-Toy Robot Simulator
 
 Description:
 1. The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units.
