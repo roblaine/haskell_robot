@@ -1,5 +1,8 @@
 # Requirements
-(Jon Eaves' Blog Post)[https://joneaves.wordpress.com/2014/07/21/toy-robot-coding-test/]
+
+[Jon Eaves' Blog Post](https://joneaves.wordpress.com/2014/07/21/toy-robot-coding-test/)
+
+
 Toy Robot Simulator
 
 Description:
