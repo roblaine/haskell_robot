@@ -8,6 +8,7 @@ import Types exposing (Board, Robot)
 import Browser
 import Html exposing (Html, button, div, p, s, text)
 import Html.Events exposing (onClick)
+import Html.Attributes exposing (style)
 
 -- MAIN
 main : Program () Model Msg
@@ -60,7 +61,7 @@ update msg model =
 -- VIEW
 view : Model -> Html Msg
 view model =
-  div []
+  div [ style "background-color" "grey" ]
     [ p [] [ text "("
             , text (String.fromInt model.robot.posX)
             , text ", "

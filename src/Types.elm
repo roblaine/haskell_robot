@@ -1,14 +1,10 @@
 module Types exposing (..)
 
-type alias Board = 
+type alias Board =
   { dimX : Int
   , dimY : Int
   , cellWidth : Int
   }
-
-type RobotStatus
-  = Placed
-  | Unplaced
 
 type Direction
   = NORTH
@@ -23,3 +19,7 @@ type alias Robot
   , dir : Direction
   , status: RobotStatus
   }
+
+type RobotStatus
+  = Placed
+  | Unplaced
