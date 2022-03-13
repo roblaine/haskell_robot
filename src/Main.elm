@@ -1,16 +1,13 @@
 module Main exposing (..)
 
 import Board exposing (..)
+import Draw exposing (..)
 import Robot exposing (..)
 import Types exposing (Board, Robot)
 
 import Browser
-import Html exposing (Html, button, div)
+import Html exposing (Html, button, div, p, s, text)
 import Html.Events exposing (onClick)
-import Svg exposing (..)
-import Svg.Attributes exposing (..)
-import Html exposing (p)
-import Html exposing (s)
 
 -- MAIN
 main : Program () Model Msg
@@ -24,7 +21,7 @@ type alias Model =
   }
 
 init : Model
-init = Model (Robot 0 0 Types.NORTH Types.Unplaced) (Board 5 5)
+init = Model (Robot 0 0 Types.NORTH Types.Unplaced) (Board 5 5 100)
 
 -- UPDATE
 type Msg =
@@ -64,26 +61,22 @@ update msg model =
 view : Model -> Html Msg
 view model =
   div []
-    [ p [] [ Html.text "("
-            , Html.text (String.fromInt model.robot.posX)
-            , Html.text ", "
-            , Html.text (String.fromInt model.robot.posY)
-            , Html.text ") facing "
-            , Html.text (dirToString model.robot.dir)
+    [ p [] [ text "("
+            , text (String.fromInt model.robot.posX)
+            , text ", "
+            , text (String.fromInt model.robot.posY)
+            , text ") facing "
+            , text (dirToString model.robot.dir)
            ]
-    , div [] [ Html.text (statusToString model.robot.status) ]
-    , button [ onClick Move ] [ Html.text "Move" ] 
-    , button [ onClick Left ] [ Html.text "Left" ]
-    , button [ onClick Right ] [ Html.text "Right" ]
+    , div [] [ text (statusToString model.robot.status) ]
+    , button [ onClick Move ] [ text "Move" ] 
+    , button [ onClick Left ] [ text "Left" ]
+    , button [ onClick Right ] [ text "Right" ]
     , button [ onClick (Place "0" "0" "NORTH") ] [ Html.text "Place" ]
-    , svg
-    [ width "500"
-    , height "500"
-    , viewBox "0 0 500 500"
+    , div [] [
+      drawBoard model.board 45 0.75 "none" "black"
     ]
-    [ drawSquare (getVertices 0 0 100 45) []
-    ]
-    ]
+  ]
 
 boolToString : Bool -> String
 boolToString value =

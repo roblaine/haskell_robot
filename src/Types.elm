@@ -3,6 +3,7 @@ module Types exposing (..)
 type alias Board = 
   { dimX : Int
   , dimY : Int
+  , cellWidth : Int
   }
 
 type RobotStatus
