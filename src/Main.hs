@@ -1,27 +1,21 @@
 module Main
   where
 
-import Coordinate hiding (loc_to_str)
--- import Data.Char
+import Robot
 
-size = 5 :: Int
-coord = Coordinate (Location (0, 0), "F")
-moves = []
-blocker = ()
+-- TODO put state into a data structure
 
+main :: IO ()
 main = do
-  putStrLn "Please enter a command:"  
-  word <- getLine
-  if word == "PLACE"
-    then main
-  else if word == "MOVE"
-    then main
-  else if word == "LEFT"
-    then main
-  else if word == "RIGHT"
-    then main
-  else if word == "REPORT"
-    then main
-  else if word == "EXIT"
-    then return ()
-  else main
+  let dir = Nothing
+  let blocker = Nothing
+  let pos = Nothing
+  let size = 5 :: Integer
+  let board = (size, size)
+
+  -- TODO: Implement user input inside of a recursive fn
+  let pos = place (0,0) board 'n'
+  putStrLn (report pos)
+  let pos' = go pos board
+  putStrLn (report pos')
+  main
