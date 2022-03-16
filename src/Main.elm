@@ -4,10 +4,9 @@ import Board exposing (..)
 import Browser
 import Draw exposing (..)
 import Html exposing (Html, button, div, p, s, text)
-import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
 import Robot exposing (..)
-import Types exposing (Board, Robot)
+import Types exposing (Board, Robot, Model)
 
 
 
@@ -20,18 +19,8 @@ main =
 
 
 
--- MODEL
-
-
-type alias Model =
-    { robot : Robot
-    , board : Board
-    }
-
-
 init : Model
-init =
-    Model (Robot 0 0 Types.NORTH Types.Unplaced) (Board 5 5 100)
+init = Model (Robot 0 0 Types.NORTH Types.Unplaced) (Board 5 5 100 0.75 45.0)
 
 
 
@@ -83,10 +72,7 @@ update msg model =
 
 view : Model -> Html Msg
 
-
-
 -- style "background-color" "grey"
-
 
 view model =
     div []
@@ -104,7 +90,7 @@ view model =
         , button [ onClick Right ] [ text "Right" ]
         , button [ onClick (Place "0" "0" "NORTH") ] [ Html.text "Place" ]
         , div []
-            [ drawBoard model.board 45 0.75 "none" "black"
+            [ drawBoard model.board model.robot "none" "black"
             ]
         ]
 

@@ -4,6 +4,8 @@ type alias Board =
   { dimX : Int
   , dimY : Int
   , cellWidth : Int
+  , heightFactor : Float
+  , viewingAngle : Float
   }
 
 type Direction
@@ -12,6 +14,11 @@ type Direction
   | SOUTH
   | WEST
   | NODIR
+
+type alias Model =
+    { robot : Robot
+    , board : Board
+    }
 
 type alias Robot
   = { posX : Int
