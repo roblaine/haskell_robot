@@ -71,7 +71,6 @@ drawBoard b angle hFact fillColour lineColour =
         , drawCell 4 2 b 45.0 hFact fillColour lineColour
         , drawCell 4 3 b 45.0 hFact fillColour lineColour
         , drawCell 4 4 b 45.0 hFact fillColour lineColour
-
         , drawArrow 100 100 b "red" "red"
         ]
 
@@ -108,4 +107,3 @@ vertsForCell x y cellWidth angle hFact =
 vertsToString : List ( Float, Float ) -> String
 vertsToString pairs =
     pairs |> List.map (\p -> fromFloat (Tuple.first p) ++ "," ++ fromFloat (Tuple.second p)) |> List.reverse |> List.foldl (\p1 p2 -> p1 ++ " " ++ p2) ""
-
